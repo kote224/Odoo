@@ -1,0 +1,82 @@
+<odoo>
+  <data>
+    <!--Trees -->
+    <record model="ir.ui.view" id="zoologico.list_zoologico">
+      <field name="name">list zoologico</field>
+      <field name="model">zoologico.zoologico</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="ubicacion"/>
+          <field name="cap_maxima"/>
+          <field name="idanimales"/>
+          <field name="idzoozona"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="zoologico.list_animal">
+      <field name="name">list animal</field>
+      <field name="model">zoologico.animal</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="cod_animal"/>
+          <field name="idanimal"/>
+          <field name="idanimalHab"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="zoologico.list_zona">
+      <field name="name">list zona</field>
+      <field name="model">zoologico.zona</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre_zona"/>
+          <field name="idanimalesHab"/>
+          <field name="idzonazoo"/>
+        </tree>
+      </field>
+    </record>
+   
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="zoologico.action_window_zoologico">
+      <field name="name">zoologico</field>
+      <field name="res_model">zoologico.zoologico</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="zoologico.action_window_animal">
+      <field name="name">animal</field>
+      <field name="res_model">zoologico.animal</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+   
+    
+    <record model="ir.actions.act_window" id="zoologico.action_window_zona">
+      <field name="name">zona</field>
+      <field name="res_model">zoologico.zona</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+    
+    <menuitem name="zoologico" id="zoologico.menu_root"/>
+   
+    <!-- menu categories -->
+    
+    <menuitem name="Menu" id="zoologico.menu_1" parent="zoologico.menu_root"/>
+   
+    <!-- actions -->
+    
+    <menuitem name="zoologico" id="zoologico.menu_1_zoologico" parent="zoologico.menu_1"
+              action="zoologico.action_window_zoologico"/>
+    <menuitem name="animal" id="zoologico.menu_1_animal" parent="zoologico.menu_1"
+              action="zoologico.action_window_animal"/>
+    <menuitem name="zona" id="zoologico.menu_1_zona" parent="zoologico.menu_1"
+              action="zoologico.action_window_zona"/>
+    
+   
+  </data>
+</odoo>
